@@ -1,0 +1,11 @@
+include ':app'
+include ':platform.core', ':platform.service'
+
+rootProject.name = "MiningUi"
+
+project(':platform.core').projectDir = new File('../mining-platform-mobile-core/platform/core')
+project(':platform.service').projectDir = new File('../mining-platform-mobile-core/platform/service')
+
+println 'PATH core: ' + project(':platform.core').projectDir.getAbsolutePath()
+println 'PATH service: ' + project(':platform.service').projectDir.getAbsolutePath()
+
