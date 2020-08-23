@@ -1,6 +1,8 @@
 package br.com.mining.mobile.application
 
 import android.app.Application
+import br.com.mining.mobile.service.di.appDataModule
+import br.com.mining.mobile.service.di.serviceModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -23,7 +25,7 @@ class MiningApp : Application() {
             androidContext(baseContext)
             androidLogger()
             androidFileProperties()
-            modules(listOf())
+            modules(listOf(appDataModule, serviceModule))
         }
 
     }
