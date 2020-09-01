@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="br.com.mining.mobile.shared.ui.viewmodels.MessageViewModel" />
+    </data>
+
+    <br.com.mining.mobile.shared.ui.view.MessageView
+        style="@style/modal_container"
+        android:padding="@dimen/margin"
+        tools:ignore="MissingPrefix">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/text_view_title"
+                style="@style/modal_title"
+                android:text="@{viewModel.title}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_view_subtitle"
+                style="@style/modal_subtitle"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/black"
+                android:text="@{viewModel.description}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_title" />
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_subtitle">
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    style="@style/BtnCancel"
+                    android:layout_weight="0.5"
+                    android:text="@string/cancel"
+                    android:fontFamily="@font/roboto_bold"
+                    />
+
+                <Button
+                    android:id="@+id/btn_success"
+                    style="@style/BtnDefault"
+                    android:layout_weight="0.5"
+                    android:text="@string/ok"
+                    android:fontFamily="@font/roboto_bold"
+                    />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </br.com.mining.mobile.shared.ui.view.MessageView>
+</layout>

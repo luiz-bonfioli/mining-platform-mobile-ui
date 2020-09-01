@@ -1,0 +1,80 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:itemBackground">@color/black</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="open_container">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingStart">@dimen/open_padding</item>
+        <item name="android:paddingTop">@dimen/open_padding_top</item>
+        <item name="android:paddingEnd">@dimen/open_padding</item>
+        <item name="android:paddingBottom">@dimen/open_padding_top</item>
+    </style>
+
+    <style name="modal_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">fonts/Roboto-Bold.ttf</item>
+    </style>
+
+    <style name="modal_subtitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">14dp</item>
+        <item name="fontFamily">fonts/Roboto-Bold.ttf</item>
+    </style>
+
+    <style name="modal_container">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/btn_margin</item>
+        <item name="android:background">#ffffff</item>
+        <item name="android:paddingLeft">@dimen/modal_container_left</item>
+        <item name="android:paddingTop">@dimen/modal_container_top</item>
+        <item name="android:paddingRight">@dimen/modal_container_left</item>
+    </style>
+
+    <style name="BtnDefault">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/btn_margin</item>
+        <item name="android:background">@drawable/selector_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">fonts/Roboto-Bold.ttf</item>
+    </style>
+
+    <style name="BtnCancel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/btn_margin</item>
+        <item name="android:background">@drawable/shape_btn_cancel</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">fonts/Roboto-Bold.ttf</item>
+    </style>
+
+
+
+</resources>

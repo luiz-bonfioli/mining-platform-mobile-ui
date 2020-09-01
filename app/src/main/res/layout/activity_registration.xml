@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DownloadActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="br.com.mining.mobile.viewmodels.activities.RegistrationViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/container_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eaeff5"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                android:padding="@dimen/margin"
+                android:background="@drawable/shape_btn_calc"
+                android:text="@{viewModel.currencyText}"
+                />
+
+            <Button
+                android:id="@+id/btn_registration"
+                style="@style/BtnColorDefault"
+                android:text="@string/registration"
+                android:layout_marginTop="20dp"
+                />
+<!--            android:enabled="@{viewModel.enableSave}"-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_container_calculator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin"
+            android:layout_weight="0.5"
+            android:elevation="4dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(7, false)}"
+                    android:text="@string/registration_types_calc_7" />
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(8, false)}"
+                    android:text="@string/registration_types_calc_8" />
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(9, false)}"
+                    android:text="@string/registration_types_calc_9" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(4, false)}"
+                    android:text="@string/registration_types_calc_4" />
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(5, false)}"
+                    android:text="@string/registration_types_calc_5" />
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(6, false)}"
+                    android:text="@string/registration_types_calc_6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(1, false)}"
+                    android:text="@string/registration_types_calc_1" />
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(2, false)}"
+                    android:text="@string/registration_types_calc_2" />
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(3, false)}"
+                    android:text="@string/registration_types_calc_3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.addSmaller()}"
+                    android:text="@string/registration_types_calc_smaller" />
+
+                <Button
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.update(0, false)}"
+                    android:text="@string/registration_types_calc_0" />
+
+                <ImageButton
+                    android:src="@drawable/ic_action_backspace"
+                    style="@style/registration_calculator_button"
+                    android:onClick="@{() -> viewModel.backspace()}"
+                    android:contentDescription="@string/app_name" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</layout>
