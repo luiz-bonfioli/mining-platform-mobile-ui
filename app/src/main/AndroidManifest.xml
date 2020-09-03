@@ -18,13 +18,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="br.com.mining.mobile.MainActivity">
+        <activity
+            android:screenOrientation="landscape"
+            android:name="br.com.mining.mobile.activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="br.com.mining.mobile.activities.SynchronizerActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name="br.com.mining.mobile.activities.RegistrationActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name="br.com.mining.mobile.activities.MainActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
 
     </application>
 
