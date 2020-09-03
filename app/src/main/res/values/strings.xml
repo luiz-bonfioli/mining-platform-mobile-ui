@@ -15,5 +15,6 @@
     <string name="registration_types_calc_00">00</string>
     <string name="registration_types_calc_smaller">-</string>
     <string name="registration">Registrar</string>
+    <string name="enter_your_registration">Digite sua matricula:</string>
 
 </resources>
