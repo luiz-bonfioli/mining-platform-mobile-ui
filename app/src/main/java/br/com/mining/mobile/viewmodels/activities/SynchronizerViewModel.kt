@@ -28,7 +28,7 @@ class SynchronizerViewModel : ViewModel(), ResultListener {
     fun start() {
         state.set(DownloadState.PROCESS)
         Observable.range(1, 100)
-            .concatMap { i -> Observable.just(i).delay(250, TimeUnit.MILLISECONDS) }
+            .concatMap { i -> Observable.just(i).delay(150, TimeUnit.MILLISECONDS) }
             .doOnNext { i ->
                 this.progress.set(i)
                 if (i == 100) {

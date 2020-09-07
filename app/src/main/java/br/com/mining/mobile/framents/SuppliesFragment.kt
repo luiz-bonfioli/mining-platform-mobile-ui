@@ -7,22 +7,24 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import br.com.mining.mobile.application.R
-import br.com.mining.mobile.application.databinding.FragmentHomeBinding
+import br.com.mining.mobile.application.databinding.FragmentStatusBinding
+import br.com.mining.mobile.application.databinding.FragmentSuppliesBinding
 import br.com.mining.mobile.framents.base.MainBaseFragment
-import br.com.mining.mobile.viewmodels.fragments.HomeViewModel
+import br.com.mining.mobile.viewmodels.fragments.StatusViewModel
+import br.com.mining.mobile.viewmodels.fragments.SuppliesViewModel
 
-class HomeFragment : MainBaseFragment() {
+class SuppliesFragment : MainBaseFragment() {
 
-    private val viewModel: HomeViewModel by lazy {
-        ViewModelProvider(this, HomeViewModel.Factory()).get(HomeViewModel::class.java)
+    private val viewModel: SuppliesViewModel by lazy {
+        ViewModelProvider(this, SuppliesViewModel.Factory()).get(SuppliesViewModel::class.java)
     }
 
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentSuppliesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_supplies, container, false)
         binding.viewModel = viewModel
 
         return binding.root

@@ -11,6 +11,10 @@ abstract class BaseFragmentActivity : BaseActivity(), OnFragmentActivityActionLi
     private var backButtonEnable: Boolean = true
     private var title: TextView? = null
 
+    abstract fun currentFragment(fragment: BaseFragment)
+
+    abstract fun close()
+
     override fun onBackPressed() {
         if (backButtonEnable) {
             popFragment(true)
@@ -34,13 +38,13 @@ abstract class BaseFragmentActivity : BaseActivity(), OnFragmentActivityActionLi
                 }
             }
 
-            if (closesActivity && supportFragmentManager.fragments.isEmpty()) {
+            if (supportFragmentManager.fragments.isNotEmpty()) {
+                currentFragment(supportFragmentManager.fragments.last() as BaseFragment)
+            } else if (closesActivity && supportFragmentManager.fragments.isEmpty()) {
                 close()
             }
         }
     }
-
-    abstract fun close()
 
     fun setTitleActionBar(titleView: TextView) {
         title = titleView

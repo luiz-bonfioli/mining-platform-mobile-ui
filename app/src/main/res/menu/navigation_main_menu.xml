@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_activity"
+        android:icon="@drawable/ic_activity"
+        android:title="@string/menu_activity"/>
+
+    <item
+        android:id="@+id/navigation_msgs"
+        android:icon="@drawable/ic_msg_box"
+        android:title="@string/menu_msg"/>
+
+    <item
+        android:id="@+id/navigation_status"
+        android:icon="@drawable/ic_sync_status"
+        android:title="@string/menu_status"/>
+
+    <item
+        android:id="@+id/navigation_fuel"
+        android:icon="@drawable/ic_to_fuel"
+        android:title="@string/menu_fuel"/>
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/menu_settings"/>
+
+</menu>

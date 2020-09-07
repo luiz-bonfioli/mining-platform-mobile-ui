@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.mining.mobile.application.R
 import br.com.mining.mobile.application.databinding.ActivityRegistrationBinding
 import br.com.mining.mobile.viewmodels.activities.RegistrationViewModel
+import org.jetbrains.anko.intentFor
 
 class RegistrationActivity : BaseActivity() {
 
@@ -23,6 +24,10 @@ class RegistrationActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
+
+        binding.btnRegistration.setOnClickListener {
+            startActivity(intentFor<MainActivity>())
+        }
     }
 
 

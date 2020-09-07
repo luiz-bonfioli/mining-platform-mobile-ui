@@ -16,5 +16,10 @@
     <string name="registration_types_calc_smaller">-</string>
     <string name="registration">Registrar</string>
     <string name="enter_your_registration">Digite sua matricula:</string>
+    <string name="menu_activity">Atividades</string>
+    <string name="menu_settings">Configuração</string>
+    <string name="menu_msg">Mensagens</string>
+    <string name="menu_status">Troca</string>
+    <string name="menu_fuel">Abastecimento</string>
 
 </resources>
