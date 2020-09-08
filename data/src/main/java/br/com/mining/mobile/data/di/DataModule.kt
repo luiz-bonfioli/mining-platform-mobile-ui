@@ -23,6 +23,10 @@ val dataModule = module {
     single<ChecklistItem> { ChecklistItemEntity() }
     single<ChecklistItemRepository> { ChecklistItemRepositoryImpl() }
 
+    single { get<AppDatabase>().equipmentDao() }
+    single<Equipment> { EquipmentEntity() }
+    single<EquipmentRepository> { EquipmentRepositoryImpl() }
+
     single { get<AppDatabase>().inboundDao() }
     single<Inbound> { InboundEntity() }
     single<InboundRepository> { InboundRepositoryImpl() }

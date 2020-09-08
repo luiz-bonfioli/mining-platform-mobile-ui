@@ -32,5 +32,12 @@ class HomeFragment : MainBaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        binding.btnConnect.setOnClickListener {
+            viewModel.connect(requireContext())
+        }
+
+        binding.btnSync.setOnClickListener {
+            viewModel.test()
+        }
     }
 }

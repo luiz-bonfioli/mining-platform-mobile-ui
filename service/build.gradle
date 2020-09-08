@@ -53,7 +53,10 @@ dependencies {
     implementation "org.jetbrains.anko:anko:$anko_version"
     implementation "org.jetbrains.anko:anko-design:$anko_version"
 
+    implementation project(":mining-platform-protobuffers")
 
+    //protobuffers
+    implementation "com.google.protobuf:protobuf-java:3.11.0"
 }
 
 

@@ -9,7 +9,8 @@ import java.io.Serializable
 data class OperatorEntity(
     @PrimaryKey
     override var id: String = "",
-    override var name: String = ""
+    override var name: String = "",
+    override var register: String = ""
 ) : Serializable, Operator {
 
     companion object {

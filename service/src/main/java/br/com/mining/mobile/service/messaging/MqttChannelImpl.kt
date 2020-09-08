@@ -8,51 +8,56 @@ import android.content.ServiceConnection
 import android.os.*
 import android.text.TextUtils
 import android.util.Log
-import br.com.mining.platform.service.messaging.CommunicationService
+import br.com.mining.platform.core.service.messaging.CommunicationService
 import br.com.mining.platform.service.messaging.MqttConstants
 import br.com.mining.platform.shared.MqttStatus
+import br.com.mining.platform.shared.listeners.MessageListener
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
+import org.koin.core.KoinComponent
+import org.koin.core.inject
+import org.koin.core.qualifier.named
 import java.nio.ByteBuffer
 import java.util.concurrent.TimeUnit
 
 @SuppressLint("CheckResult")
-class MqttChannelImpl(context: Context) : MqttChannel {
+object MqttChannelImpl : MqttChannel, KoinComponent {
 
-    companion object {
-        private const val TAG = "MQTT"
-        private const val TIMEOUT_SERVICE_CONNECTED = 1000
-        private const val TIMEOUT_CONNECTED = 30000
-    }
+    private const val TAG = "MQTT"
+    private const val TIMEOUT_SERVICE_CONNECTED = 1000
+    private const val TIMEOUT_CONNECTED = 30000
+    private var started: Boolean = false
 
-    init {
-        context.bindService(
-            Intent(context, CommunicationService::class.java),
-            object : ServiceConnection {
-                override fun onServiceConnected(name: ComponentName, service: IBinder) {
-                    messenger = Messenger(service)
-                    isServiceConnected = true
-                }
+    override fun start(context: Context) {
+        if (!started) {
+            started = true
+            context.bindService(
+                Intent(context, CommunicationService::class.java),
+                object : ServiceConnection {
+                    override fun onServiceConnected(name: ComponentName, service: IBinder) {
+                        messenger = Messenger(service)
+                        isServiceConnected = true
+                    }
 
-                override fun onServiceDisconnected(name: ComponentName) {
-                    isServiceConnected = false
-                }
-            }, Context.BIND_AUTO_CREATE
-        )
-        initObservable()
+                    override fun onServiceDisconnected(name: ComponentName) {
+                        isServiceConnected = false
+                    }
+                }, Context.BIND_AUTO_CREATE
+            )
+            initObservable()
+        }
     }
 
     private var messenger: Messenger? = null
     private val incomingMessenger: Messenger by lazy { Messenger(IncomingHandler()) }
     private var isServiceConnected = false
     private var status: MqttStatus = MqttStatus.INIT
-    private val observable: PublishSubject<MqttStatus> by lazy {
-        PublishSubject.create<MqttStatus>()
-    }
+    private val observable: PublishSubject<MqttStatus> = PublishSubject.create<MqttStatus>()
+
 
     override fun addSubscriber(subscriber: Consumer<MqttStatus>): Disposable {
         return observable.subscribe(subscriber)
@@ -60,8 +65,10 @@ class MqttChannelImpl(context: Context) : MqttChannel {
 
     override fun getStatus(): MqttStatus = status
 
-    override fun connect(clientId: String, host: String, port: String, userName: String,
-                         password: String) {
+    override fun connect(
+        clientId: String, host: String, port: String, userName: String,
+        password: String
+    ) {
 
         val msgBundle = Message.obtain(null, MqttConstants.CONNECT)
         val bundle = Bundle()
@@ -163,29 +170,22 @@ class MqttChannelImpl(context: Context) : MqttChannel {
     }
 
     @SuppressLint("HandlerLeak")
-    private inner class IncomingHandler : Handler() {
+    private class IncomingHandler : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             when (msg.what) {
                 MqttConstants.MESSAGE_ARRIVED -> {
                     Log.d(TAG, "MqttConstants.MESSAGE_ARRIVED")
                     try {
                         val bundle = msg.data
-                        val topic = bundle.getCharArray(MqttConstants.TOPIC)
+                        val topic = bundle.getCharArray(MqttConstants.TOPIC) ?: charArrayOf()
                         val payload = bundle.getByteArray(MqttConstants.PAYLOAD)
                         val payloadBuffer = ByteBuffer.wrap(payload)
-                        val moduleId = payloadBuffer.get()
+                        val serviceId = payloadBuffer.get()
                         val eventId = payloadBuffer.get()
                         val content = ByteArray(payloadBuffer.remaining())
                         payloadBuffer[content]
-//                        val messageListener: Any = Injector.get(moduleId)
-//                        if (messageListener != null) {
-//                            (messageListener as MessageListener).onMessageArrived(
-//                                content, eventId,
-//                                String(topic!!)
-//                            )
-//                        } else {
-//                            Log.d(TAG, " ******* Injetor: $moduleId")
-//                        }
+                        val messageListener: MessageListener by inject(named(serviceId.toString()))
+                        messageListener.onMessageArrived(content, eventId, String(topic))
                     } catch (e: Exception) {
                         e.printStackTrace()
                         Log.e(TAG, e.message!!)
@@ -197,6 +197,7 @@ class MqttChannelImpl(context: Context) : MqttChannel {
                     try {
                         val state = bundle.getString(MqttConstants.STATE) ?: ""
                         updateStatus(MqttStatus.valueOf(state))
+                        Log.d(TAG,MqttStatus.valueOf(state).toString())
                     } catch (ex: Exception) {
                         ex.printStackTrace()
                     }

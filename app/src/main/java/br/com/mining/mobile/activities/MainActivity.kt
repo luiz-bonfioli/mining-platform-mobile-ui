@@ -31,6 +31,7 @@ class MainActivity : BaseFragmentActivity(), BottomNavigationView.OnNavigationIt
 
         binding.navigationView.setOnNavigationItemSelectedListener(this)
         openMenuFragment(HomeFragment::class)
+
     }
 
     override fun close() {

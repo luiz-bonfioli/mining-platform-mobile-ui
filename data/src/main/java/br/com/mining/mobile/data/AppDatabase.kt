@@ -10,6 +10,7 @@ import br.com.mining.mobile.data.model.*
     entities = [
         ChecklistEntity::class,
         ChecklistItemEntity::class,
+        EquipmentEntity::class,
         InboundEntity::class,
         OperatorEntity::class,
         OrganizationEntity::class,
@@ -25,6 +26,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun checkListDao(): CheckListDao
 
     abstract fun checkListItemDao(): ChecklistItemDao
+
+    abstract fun equipmentDao(): EquipmentDao
 
     abstract fun inboundDao(): InboundDao
 

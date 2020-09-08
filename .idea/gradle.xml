@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/service" />
             <option value="$PROJECT_DIR$/shared" />
+            <option value="$PROJECT_DIR$/../mining-platform-protobuffers" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
