@@ -21,5 +21,12 @@
     <string name="menu_msg">Mensagens</string>
     <string name="menu_status">Troca</string>
     <string name="menu_fuel">Abastecimento</string>
+    <string name="equipment">Equipamento</string>
+
+    <string name="permission_text">É necessário para a executação da integração as permissões solicitadas.</string>
+    <string name="permission_title">Por que precisamos das permissões?</string>
+    <string name="permission_denied">"Permissão negada"</string>
+    <string name="permission_never_askagain">"Nunca perguntar novamente sobre a permissão."</string>
+    <string name="next">Próximo</string>
 
 </resources>

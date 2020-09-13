@@ -42,6 +42,12 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme" />
 
+
+        <activity
+            android:name="br.com.mining.mobile.activities.SettingActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>

@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Checklist" />
+                android:text="@{viewModel.name}" />
 
         </RelativeLayout>
 
@@ -45,19 +45,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_highlight_off"
-            android:layout_margin="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ic_on"
             app:layout_constraintLeft_toRightOf="@+id/ic_on"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            app:tint="@color/black" />
 
         <ImageView
             android:id="@+id/ic_on"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_checkout_on"
-            android:layout_margin="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            app:tint="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

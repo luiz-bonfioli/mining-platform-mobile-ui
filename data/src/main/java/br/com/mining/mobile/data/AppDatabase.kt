@@ -23,7 +23,7 @@ import br.com.mining.mobile.data.model.*
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun checkListDao(): CheckListDao
+    abstract fun checkListDao(): ChecklistDao
 
     abstract fun checkListItemDao(): ChecklistItemDao
 

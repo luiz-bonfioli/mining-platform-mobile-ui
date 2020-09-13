@@ -11,4 +11,6 @@
     <color name="white">#ffffff</color>
     <color name="black">#191919</color>
     <color name="card_line_color">#eaeff5</color>
+    <color name="green">#00FF00</color>
+    <color name="red">#FF0000</color>
 </resources>

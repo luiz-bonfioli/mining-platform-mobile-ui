@@ -26,7 +26,8 @@ class RegistrationActivity : BaseActivity() {
         binding.viewModel = viewModel
 
         binding.btnRegistration.setOnClickListener {
-            startActivity(intentFor<MainActivity>())
+            startActivity(intentFor<SettingActivity>())
+            finish()
         }
     }
 

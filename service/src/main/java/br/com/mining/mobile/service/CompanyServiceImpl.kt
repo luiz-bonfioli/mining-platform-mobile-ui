@@ -1,8 +1,8 @@
 package br.com.mining.mobile.service
 
-import br.com.mining.platform.shared.listeners.MessageListener
+import br.com.mining.mobile.shared.service.CompanyService
 
-class CompanyServiceImpl : MessageListener {
+object CompanyServiceImpl : CompanyService {
 
     override fun onMessageArrived(message: ByteArray, eventId: Byte, topic: String) {
     }

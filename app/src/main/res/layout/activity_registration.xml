@@ -18,7 +18,7 @@
         android:id="@+id/container_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#eaeff5"
+        android:background="@color/white"
         android:clickable="true"
         android:focusable="true"
         android:orientation="horizontal">
@@ -31,23 +31,13 @@
             android:layout_margin="@dimen/margin"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_margin="@dimen/margin"
-                android:text="@string/enter_your_registration"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_registration_background"
                 />
 
-            <TextView
-                android:id="@+id/number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="50sp"
-                android:padding="@dimen/margin"
-                android:background="@drawable/shape_btn_calc"
-                android:text="@{viewModel.currencyText}"
-                />
 
             <Button
                 android:id="@+id/btn_registration"
@@ -69,8 +59,24 @@
             android:elevation="4dp"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/enter_your_registration"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_btn_calc"
+                android:padding="@dimen/margin"
+                android:text="@{viewModel.currencyText}"
+                android:textSize="40sp" />
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
