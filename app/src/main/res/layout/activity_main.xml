@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:textAlignment="textEnd"
-            app:itemIconSize="60dp"
+            app:itemIconSize="40dp"
             app:itemIconTint="@color/bnv_tab_item_foreground"
             app:itemTextColor="@color/bnv_tab_item_foreground"
             app:labelVisibilityMode="labeled"

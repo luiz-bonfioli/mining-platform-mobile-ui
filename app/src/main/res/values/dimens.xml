@@ -12,8 +12,8 @@
     <dimen name="sync_progress_height">30dp</dimen>
     <dimen name="sync_progress_margin_top">14dp</dimen>
 
-    <dimen name="design_bottom_navigation_text_size" tools:override="true">25sp</dimen>
-    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">25sp</dimen>
-    <dimen name="design_bottom_navigation_height" tools:override="true">120dp</dimen>
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">18sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">18sp</dimen>
+    <dimen name="design_bottom_navigation_height" tools:override="true">80dp</dimen>
 
 </resources>

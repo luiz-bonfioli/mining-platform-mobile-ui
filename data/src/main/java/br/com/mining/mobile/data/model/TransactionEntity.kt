@@ -13,7 +13,6 @@ data class TransactionEntity(
     override var id: String = "",
     override var topic: String = "",
     override var status: TransactionState = TransactionState.FINISH,
-    override var persist: Boolean = true,
     override var type: TransactionType = TransactionType.IMPORT,
     override var module: Byte? = null,
     override var event: Byte? = null,

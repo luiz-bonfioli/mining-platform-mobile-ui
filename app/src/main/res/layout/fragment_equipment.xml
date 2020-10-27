@@ -37,7 +37,7 @@
                 android:textSize="30sp"
                 android:textColor="@color/yellow"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Bem vindo, Adriano"
+                android:text="Bem vindo"
                 />
 
         </LinearLayout>

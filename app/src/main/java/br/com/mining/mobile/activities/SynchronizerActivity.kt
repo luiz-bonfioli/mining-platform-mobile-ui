@@ -5,11 +5,13 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.Observable
 import androidx.lifecycle.ViewModelProvider
+import br.com.mining.mobile.activities.enums.ConfigurationOpenMode
 import br.com.mining.mobile.application.R
 import br.com.mining.mobile.application.databinding.ActivitySynchronizerBinding
 import br.com.mining.mobile.viewmodels.activities.SynchronizerViewModel
 import br.com.mining.mobile.viewmodels.states.DownloadState
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.startActivity
 import java.lang.ref.WeakReference
 
 class SynchronizerActivity : BaseActivity() {
@@ -40,7 +42,9 @@ class SynchronizerActivity : BaseActivity() {
     private fun handleState() {
         when (viewModel.state.get()) {
             DownloadState.ERROR, DownloadState.SUCCESS ->
-                startActivity(intentFor<RegistrationActivity>())
+                startActivity<SettingActivity>(
+                    SettingActivity.CONFIGURATION_OPEN_MODE to ConfigurationOpenMode.SELECT_EQUIPMENT
+                )
             DownloadState.PROCESS ->
                 cancelIndeterminate()
             DownloadState.INDETERMINANTE ->

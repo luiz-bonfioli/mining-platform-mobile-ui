@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.mining.mobile.activities.RegistrationActivity
 import br.com.mining.mobile.adapters.EquipmentAdapter
 import br.com.mining.mobile.application.R
 import br.com.mining.mobile.application.databinding.FragmentEquipmentBinding
@@ -17,6 +18,7 @@ import br.com.mining.mobile.shared.model.Checklist
 import br.com.mining.mobile.viewmodels.fragments.EquipmentViewModel
 import br.com.mining.mobile.viewmodels.items.EquipmentItemViewModel
 import com.unikode.mobile.fragments.listeners.OnRecyclerViewClickListener
+import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.onRefresh
 
 class EquipmentFragment : MainBaseFragment(), OnRecyclerViewClickListener<EquipmentItemViewModel> {
@@ -65,6 +67,7 @@ class EquipmentFragment : MainBaseFragment(), OnRecyclerViewClickListener<Equipm
 
 
     override fun onItemSelected(item: EquipmentItemViewModel, position: Int) {
-        actionListener?.openFragment(newInstance(ChecklistFragment::class, actionListener), true)
+        activity?.startActivity(intentFor<RegistrationActivity>())
+        activity?.finish()
     }
 }

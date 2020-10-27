@@ -9,7 +9,8 @@ import java.io.Serializable
 data class ChecklistItemEntity(
     @PrimaryKey
     override var id: String = "",
-    override var name: String = ""
+    override var name: String = "",
+    override var checklistId: String = ""
 ) : Serializable, ChecklistItem {
 
     companion object {

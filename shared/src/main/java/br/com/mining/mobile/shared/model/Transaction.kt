@@ -8,7 +8,6 @@ interface Transaction : BaseEntity {
     var type: TransactionType
     var topic: String
     var status: TransactionState
-    var persist: Boolean
     var module: Byte?
     var event: Byte?
     var packageNumber: Int
