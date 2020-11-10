@@ -4,8 +4,10 @@ import br.com.mining.mobile.data.di.dataModule
 import br.com.mining.mobile.service.*
 import br.com.mining.mobile.service.messaging.MqttChannel
 import br.com.mining.mobile.service.messaging.MqttChannelImpl
+import br.com.mining.mobile.service.synchronism.SynchronismImpl
 import br.com.mining.mobile.shared.protocol.Protocol
 import br.com.mining.mobile.shared.service.*
+import br.com.mining.mobile.shared.synchronism.Synchronism
 import br.com.mining.platform.shared.listeners.MessageListener
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
@@ -18,8 +20,9 @@ val appDataModule = dataModule
 
 val serviceModule = module {
 
+    single<Synchronism> { SynchronismImpl() }
     single<ImportService> { ImportServiceImpl() }
-    single<ChecklistService> { ChecklistServiceImpl() }
+    single<ChecklistService> { ChecklistServiceImpl }
 
     single<MqttChannel> { MqttChannelImpl }
 

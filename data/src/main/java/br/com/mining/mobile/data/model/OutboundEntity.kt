@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import br.com.mining.mobile.shared.enums.MachineStatus
 import br.com.mining.mobile.shared.model.Outbound
 
-@Entity
+@Entity(tableName = "outbound")
 data class OutboundEntity(
     @PrimaryKey
     override var id: String = "",

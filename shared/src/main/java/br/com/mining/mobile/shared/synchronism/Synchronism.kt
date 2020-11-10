@@ -15,11 +15,27 @@ interface Synchronism : MessageListener {
 
     fun reset()
 
-    fun <T : RequestHeader> importData(topic: String, payload: T, requireNewTransaction: Boolean,
+    fun <T : RequestHeader> importData(
+        topic: String, payload: T, requireNewTransaction: Boolean,
         subscriber: Consumer<SyncModelState>
     )
 
     fun register(topic: String, subscriber: Consumer<SyncModelState>)
 
     fun exportData(transaction: Transaction)
+
+    fun resumeTransaction(transaction: Transaction)
+
+    fun importAttachment(
+        topic: String,
+        payload: ByteArray,
+        subscriber: Consumer<SyncModelState>
+    )
+
+    fun resumeAttachment(
+        topic: String,
+        transaction: Transaction,
+        subscriber: Consumer<SyncModelState>
+    )
+
 }

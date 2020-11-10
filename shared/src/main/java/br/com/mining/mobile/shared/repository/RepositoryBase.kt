@@ -4,6 +4,8 @@ import br.com.mining.mobile.shared.model.BaseEntity
 
 interface RepositoryBase<T : BaseEntity> {
 
+    fun getById(id: String): T?
+
     fun insert(entity: T): Long
 
     fun update(entity: T)

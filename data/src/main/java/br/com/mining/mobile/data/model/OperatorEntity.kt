@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import br.com.mining.mobile.shared.model.Operator
 import java.io.Serializable
 
-@Entity
+@Entity(tableName = "operator")
 data class OperatorEntity(
     @PrimaryKey
     override var id: String = "",

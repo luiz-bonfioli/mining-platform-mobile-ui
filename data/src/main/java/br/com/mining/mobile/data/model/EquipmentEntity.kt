@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import br.com.mining.mobile.shared.model.Equipment
 
-@Entity
+@Entity(tableName = "equipment")
 class EquipmentEntity(
     @PrimaryKey
     override var id: String = "",

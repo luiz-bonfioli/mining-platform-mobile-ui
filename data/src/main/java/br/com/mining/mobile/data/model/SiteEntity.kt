@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import br.com.mining.mobile.shared.model.Site
 import java.io.Serializable
 
-@Entity
+@Entity(tableName = "site")
 data class SiteEntity(
     @PrimaryKey
     override var id: String = "",

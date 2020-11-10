@@ -11,7 +11,7 @@ abstract class RepositoryBaseImpl<DAO : DaoBase<E>, E, IE : BaseEntity> : Reposi
 
     abstract val dao: DAO
 
-    abstract fun getById(id: String): IE
+    abstract fun getById(id: String): IE?
 
     override fun insert(entity: IE): Long {
         return dao.insert(entity as E)

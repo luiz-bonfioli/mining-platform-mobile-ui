@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import br.com.mining.mobile.shared.model.Checklist
 import java.io.Serializable
 
-@Entity
+@Entity(tableName = "checklist")
 data class ChecklistEntity(
     @PrimaryKey
     override var id: String = "",

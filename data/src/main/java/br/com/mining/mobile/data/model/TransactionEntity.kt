@@ -7,7 +7,7 @@ import br.com.mining.mobile.shared.enums.TransactionType
 import br.com.mining.mobile.shared.model.Transaction
 import java.util.*
 
-@Entity
+@Entity(tableName = "transaction")
 data class TransactionEntity(
     @PrimaryKey
     override var id: String = "",
