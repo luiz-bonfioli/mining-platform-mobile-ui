@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+    </data>
+
+    <br.com.mining.mobile.shared.ui.view.LoadingView
+        android:id="@+id/view_loading"
+        style="@style/open_container"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_loading_animation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/loading_height"
+            app:lottie_autoPlay="true"
+            app:lottie_colorFilter="@color/colorPrimary"
+            app:lottie_fileName="loading_quickload.json"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:id="@+id/text_view_title"
+            android:fontFamily="fonts/Roboto-Medium.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/loading_text" />
+
+    </br.com.mining.mobile.shared.ui.view.LoadingView>
+</layout>

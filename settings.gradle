@@ -1,11 +1,16 @@
+include ':service'
+include ':shared'
+include ':data'
 include ':app'
-include ':platform.core', ':platform.service'
+include ':platform.core', ':platform.shared'
+include(":mining-platform-protobuffers")
 
 rootProject.name = "MiningUi"
 
 project(':platform.core').projectDir = new File('../mining-platform-mobile-core/platform/core')
-project(':platform.service').projectDir = new File('../mining-platform-mobile-core/platform/service')
+project(':platform.shared').projectDir = new File('../mining-platform-mobile-core/platform/shared')
+project(":mining-platform-protobuffers").projectDir = file("../mining-platform-protobuffers")
 
 println 'PATH core: ' + project(':platform.core').projectDir.getAbsolutePath()
-println 'PATH service: ' + project(':platform.service').projectDir.getAbsolutePath()
+println 'PATH shared: ' + project(':platform.shared').projectDir.getAbsolutePath()
 

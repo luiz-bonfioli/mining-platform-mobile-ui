@@ -1,3 +1,32 @@
 <resources>
-    <string name="app_name">MiningUi</string>
+    <string name="app_name">Mining</string>
+
+
+    <string name="registration_types_calc_1">1</string>
+    <string name="registration_types_calc_2">2</string>
+    <string name="registration_types_calc_3">3</string>
+    <string name="registration_types_calc_4">4</string>
+    <string name="registration_types_calc_5">5</string>
+    <string name="registration_types_calc_6">6</string>
+    <string name="registration_types_calc_7">7</string>
+    <string name="registration_types_calc_8">8</string>
+    <string name="registration_types_calc_9">9</string>
+    <string name="registration_types_calc_0">0</string>
+    <string name="registration_types_calc_00">00</string>
+    <string name="registration_types_calc_smaller">-</string>
+    <string name="registration">Registrar</string>
+    <string name="enter_your_registration">Digite sua matricula:</string>
+    <string name="menu_activity">Atividades</string>
+    <string name="menu_settings">Configuração</string>
+    <string name="menu_msg">Mensagens</string>
+    <string name="menu_status">Troca</string>
+    <string name="menu_fuel">Abastecimento</string>
+    <string name="equipment">Equipamento</string>
+
+    <string name="permission_text">É necessário para a executação da integração as permissões solicitadas.</string>
+    <string name="permission_title">Por que precisamos das permissões?</string>
+    <string name="permission_denied">"Permissão negada"</string>
+    <string name="permission_never_askagain">"Nunca perguntar novamente sobre a permissão."</string>
+    <string name="next">Próximo</string>
+
 </resources>

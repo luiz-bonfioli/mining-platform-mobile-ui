@@ -2,18 +2,28 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "br.com.mining.mobile.ui"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    dataBinding {
+        enabled true
     }
 
     buildTypes {
@@ -22,6 +32,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/androidx.*'
+        exclude 'META-INF/proguard/androidx-*'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -33,5 +58,55 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
 
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // Material Dialog
+    implementation 'com.afollestad.material-dialogs:core:3.1.1'
+
+    //Loading
+    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
+    implementation 'com.airbnb.android:lottie:3.4.0'
+
+    implementation project(':service')
+    implementation project(':shared')
+    implementation project(path: ':platform.shared')
+
+    //ANKO
+    implementation "org.jetbrains.anko:anko:$anko_version"
+    implementation "org.jetbrains.anko:anko-design:$anko_version"
+
+    //Data Binding
+    kapt "androidx.databinding:databinding-compiler:4.0.1"
+
+    //multidex
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    //rxjava
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+
+    //permissions
+    implementation "org.permissionsdispatcher:permissionsdispatcher-ktx:1.0.0-alpha2"
+    implementation "org.permissionsdispatcher:permissionsdispatcher:$permission"
+    kapt "org.permissionsdispatcher:permissionsdispatcher-processor:$permission"
+}
+
+dependencies {
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-core-ext:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+    implementation "org.koin:koin-java:$koin_version"
 }

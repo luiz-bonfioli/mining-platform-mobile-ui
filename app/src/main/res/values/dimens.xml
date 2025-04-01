@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <dimen name="margin">16dp</dimen>
+
+    <dimen name="sync_title">20dp</dimen>
+    <dimen name="sync_margin_top">17dp</dimen>
+    <dimen name="sync_description_margin_top">4dp</dimen>
+    <dimen name="sync_description">14sp</dimen>
+
+    <dimen name="sync_progress_margin">100dp</dimen>
+    <dimen name="sync_progress_height">30dp</dimen>
+    <dimen name="sync_progress_margin_top">14dp</dimen>
+
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">18sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">18sp</dimen>
+    <dimen name="design_bottom_navigation_height" tools:override="true">80dp</dimen>
+
+</resources>
